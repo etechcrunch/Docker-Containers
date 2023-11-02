@@ -1,6 +1,8 @@
-# **Part 2: Docker Containers with Commands**
+# Part 2: Docker Containers with Commands
 
-## **docker run**
+## docker run
+
+(The command will create and start the container. It is different from start command which only starts the container)
 
 ```
 docker run qasim56/qas_simple_flask_app:v1.0  
@@ -18,7 +20,9 @@ WARNING: This is a development server. Do not use it in a production deployment.
  Press CTRL+C to quit                   
 ```
 
-## **'docker ps' command to list all running containers**
+## 'docker ps' command to list all running containers
+
+(Show all containers. To see only active containers use switch -a)
 
 ```
 docker ps -a
@@ -31,13 +35,17 @@ CONTAINER ID   IMAGE                           COMMAND     CREATED      STATUS  
 a2acf229848c qasim56/qas_simple_flask_app:v1.0 "flask run" 5 minutes ago Up 9 seconds 5000/tcp silly_rubin
 ```
 
-## **'docker stop' command**
+## 'docker stop' command
+
+(Stops a container)
 
 ```
 docker stop silly_rubin
 ```
 
-## **'docker rm' command to remove a stopped container**
+## 
+
+## 'docker rm' command to remove a stopped container
 
 (Undermentioned command will remove stopped container rm xenodochial_benz
 
@@ -51,7 +59,7 @@ Output
 xenodochial_benz
 ```
 
-## **'docker logs' command to view the logs of a container**
+## 'docker logs' command to view the logs of a container
 
 ```
 Docker logs silly_rubin
@@ -69,7 +77,7 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 ```
 
-## **'docker inspect' command to view the details of a container**
+## 'docker inspect' command to view the details of a container
 
 ```
 Docker inspect silly_rubin
@@ -294,7 +302,7 @@ Output
 
 ## 
 
-## **'docker exec' command to execute a command inside a running container**
+## 'docker exec' command to execute a command inside a running container
 
 (Undermentioned command will create a Test folder inside running container silly_rubin
 
@@ -304,7 +312,7 @@ docker exec -d silly_rubin touch /tmp/Test1
 
 ![](media/4cc47eb873b366891f688a979f736e03.png)
 
-## **'docker commit' command to create a new image from a container**
+## 'docker commit' command to create a new image from a container
 
 (Undermentioned command created a new image named ‘none’ from a container ‘hopeful_lamport’)
 
@@ -318,9 +326,9 @@ Output
 sha256:84609c580e8e149792f813c7dfdf9f558318cc64acac4e0dd454ceddcb1c5b38
 ```
 
-## **'docker cp' command to copy files/folders between the container and the**
+## 'docker cp' command to copy files/folders between the container and the
 
-## **Host**
+## Host
 
 (The command can be used for copying file e.g from local machine to container or vice versa.Undermentioned command copy a file named ‘test’ from container tmp directory to D drive opt directory
 
@@ -334,7 +342,7 @@ Output
 Successfully copied 1.54kB to D:\opt\Test1
 ```
 
-## **'docker stats' command to view the resource usage of containers**
+## 'docker stats' command to view the resource usage of containers
 
 ```
 Docker stats
@@ -347,7 +355,7 @@ CONTAINER ID   NAME     CPU %   MEM USAGE/LIMIT  MEM %  NET I/O  BLOCK I/O PIDS
 a2acf229848c silly_rubin 0.01% 27.18MiB/3.777GiB 0.70% 1.46kB/0B  0B/0B    1   
 ```
 
-## **'docker top' command to view the running processes inside a container**
+## 'docker top' command to view the running processes inside a container
 
 ```
 docker top silly_rubin
@@ -360,7 +368,7 @@ UID     PID    PPID  C     STIME   TTY  TIME      CMD
 root    862    840   0     09:40    ?  00:00:00  /usr/local/bin/python /usr/local/bin/flask run
 ```
 
-## **'docker start' command to start a stopped container**
+## 'docker start' command to start a stopped container
 
 ```
 docker start silly_rubin
@@ -372,7 +380,7 @@ docker start silly_rubin
 silly_rubin
 ```
 
-## **'docker pause' command to pause a running container**
+## 'docker pause' command to pause a running container
 
 ```
 Docker pause silly_rubin
@@ -384,7 +392,7 @@ Docker pause silly_rubin
 silly_rubin
 ```
 
-## **'docker unpause' command to unpause a paused container**
+## 'docker unpause' command to unpause a paused container
 
 ```
 Docker unpause silly_rubin
@@ -396,7 +404,7 @@ Docker unpause silly_rubin
 silly_rubin
 ```
 
-## **'docker rename' command to rename a container** (U/M command renames container to candy)
+## 'docker rename' command to rename a container (U/M command renames container to candy)
 
 ```
 docker rename hopeful_lamport candy
@@ -404,7 +412,7 @@ docker rename hopeful_lamport candy
 
 ## 
 
-## **'docker wait' command to wait for a container to exit and then display its exit code**
+## 'docker wait' command to wait for a container to exit and then display its exit code
 
 wait and stop the container ‘candy’
 
@@ -424,9 +432,9 @@ The first terminal Output
 137
 ```
 
-## **'docker attach' command to attach local standard input, output, and error**
+## 'docker attach' command to attach local standard input, output, and error
 
-## **streams to a running container**
+## streams to a running container
 
 ```
 docker container attach candy   
@@ -441,9 +449,9 @@ The command displays ‘Hello World” on web browser **http://127.0.0.1:5000/**
 172.17.0.1 - - [02/Nov/2023 10:15:56] "GET /favicon.ico HTTP/1.1" 404 -
 ```
 
-## **'docker port' command to display the public-facing port that a container is**
+## 'docker port' command to display the public-facing port that a container is
 
-## **listening on**
+## listening on
 
 ```
 docker port candy
@@ -455,7 +463,7 @@ docker port candy
 5000/tcp -> 0.0.0.0:5000
 ```
 
-## **'docker update' to update a container's resource limits (**limit a container's cpu-shares to 512)
+## \*\*'docker update' to update a container's resource limits (\*\*limit a container's cpu-shares to 512)
 
 ```
 docker update --cpu-shares 512 candy
@@ -467,7 +475,7 @@ docker update --cpu-shares 512 candy
 candy
 ```
 
-## **'docker restart' command to restart a running container**
+## 'docker restart' command to restart a running container
 
 ```
 Docker restart candy
